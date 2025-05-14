@@ -1,216 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anniversary 2 Tahun</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-</head>
-
-<body
-  class="bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300 min-h-screen flex items-center justify-center font-sans">
-
-  <!-- 1. Input Nama -->
-  <div id="inputNama"
-    class="backdrop-blur-xl bg-white/30 border border-white/40 rounded-2xl p-8 shadow-2xl flex flex-col items-center gap-4 transition-all">
-    <h1 class="text-3xl font-bold text-pink-600 text-center drop-shadow-sm">Masukkan Nama Kamu Dulu 😚</h1>
-    <input id="namaInput" type="text" placeholder="Namamuuu cantikuuu"
-      class="rounded-lg p-3 w-64 text-pink-700 bg-white/70 backdrop-blur-sm shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400">
-    <button onclick="mulai()"
-      class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all">Mulai</button>
-  </div>
-
-  <!-- 2. Klik Love -->
-  <div id="loveClick" class="hidden min-h-screen flex flex-col justify-center items-center gap-8 text-center">
-    <!-- GIF Lucu -->
-    <img src="c33693eb5f3c4fb8ec1c28e346bb68c5.gif" alt="Cute Gif"
-      class="w-24 h-24 rounded-full shadow-lg border-4 border-white/50 backdrop-blur-md">
-
-    <!-- Teks Instruksi -->
-    <div class="backdrop-blur-xl bg-white/40 border border-white/50 px-6 py-4 rounded-full shadow-md">
-      <h2 class="text-2xl text-pink-700 font-semibold drop-shadow-sm">Klik ❤️ 4x yaa, sayang~</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anniversary 2 Tahun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  </head>
+  <body
+    class="bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300 min-h-screen flex items-center justify-center font-sans"
+  >
+    <!-- 1. Input Nama -->
+    <div
+      id="inputNama"
+      class="backdrop-blur-xl bg-white/30 border border-white/40 rounded-2xl p-8 shadow-2xl flex flex-col items-center gap-4 transition-all"
+    >
+      <h1 class="text-3xl font-bold text-pink-600 text-center drop-shadow-sm">
+        Masukkan Nama Kamu Dulu 😚
+      </h1>
+      <input
+        id="namaInput"
+        type="text"
+        placeholder="Namamuuu cantikuuu"
+        class="rounded-lg p-3 w-64 text-pink-700 bg-white/70 backdrop-blur-sm shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400"
+      />
+      <button
+        onclick="mulai()"
+        class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all"
+      >
+        Mulai
+      </button>
     </div>
 
-    <!-- Barisan Love -->
-    <div class="flex gap-8 text-6xl cursor-pointer">
-      <span onclick="klikLove(this)" class="hover:scale-125 transition-transform duration-300">❤️</span>
-      <span onclick="klikLove(this)" class="hover:scale-125 transition-transform duration-300">❤️</span>
-      <span onclick="klikLove(this)" class="hover:scale-125 transition-transform duration-300">❤️</span>
-      <span onclick="klikLove(this)" class="hover:scale-125 transition-transform duration-300">❤️</span>
+    <!-- 2. Klik Love -->
+    <div
+      id="loveClick"
+      class="hidden min-h-screen flex flex-col justify-center items-center gap-8 text-center"
+    >
+      <img
+        src="c33693eb5f3c4fb8ec1c28e346bb68c5.gif"
+        alt="Cute Gif"
+        class="w-24 h-24 rounded-full shadow-lg border-4 border-white/50 backdrop-blur-md"
+      />
+      <div
+        class="backdrop-blur-xl bg-white/40 border border-white/50 px-6 py-4 rounded-full shadow-md"
+      >
+        <h2 class="text-2xl text-pink-700 font-semibold drop-shadow-sm">
+          Klik ❤️ 4x yaa, sayang~
+        </h2>
+      </div>
+      <div class="flex gap-8 text-6xl cursor-pointer">
+        <span
+          onclick="klikLove(this)"
+          class="hover:scale-125 transition-transform duration-300"
+          >❤️</span
+        >
+        <span
+          onclick="klikLove(this)"
+          class="hover:scale-125 transition-transform duration-300"
+          >❤️</span
+        >
+        <span
+          onclick="klikLove(this)"
+          class="hover:scale-125 transition-transform duration-300"
+          >❤️</span
+        >
+        <span
+          onclick="klikLove(this)"
+          class="hover:scale-125 transition-transform duration-300"
+          >❤️</span
+        >
+      </div>
     </div>
-  </div>
 
+    <!-- 3. Kertas Turun -->
+    <div id="scrollText" class="hidden text-center mt-10 max-w-lg mx-auto">
+      <div class="bg-white/80 p-6 rounded-lg shadow-xl backdrop-blur-md">
+        <p
+          id="teksScroll"
+          class="text-lg text-pink-700 font-medium mb-4 whitespace-nowrap border-r-2 border-pink-500"
+        ></p>
+        <button
+          onclick="keCountdown()"
+          class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full hidden"
+          id="nextBtn"
+        >
+          Swipe ➡️
+        </button>
+      </div>
+    </div>
 
+    <!-- 4. Countdown -->
+    <div id="countdownPage" class="hidden text-center">
+      <h2 class="text-3xl font-bold text-pink-700 mb-4">Siap-siap ya... 💖</h2>
+      <p id="countdown" class="text-6xl text-pink-600 font-extrabold">3</p>
+    </div>
 
+    <!-- 5. Video -->
+    <div id="videoSection" class="hidden fixed inset-0 z-50">
+      <video id="annivVideo" class="w-full h-full object-cover" src="video.mp4" controls playsinline webkit-playsinline></video>
+    </div>
 
-  <script>
-    let jumlahKlik = 0;
-
-    function klikLove(el) {
-      jumlahKlik++;
-      el.classList.add('animate-bounce');
-      setTimeout(() => el.classList.remove('animate-bounce'), 500);
-
-      if (jumlahKlik >= 4) {
-        document.getElementById("loveClick").classList.add("hidden");
-      }
-    }
-
-    function cekJawaban() {
-      const jawaban = document.getElementById("jawaban").value;
-      if (jawaban.trim() === "2") {
-        document.getElementById("pesanBenar").classList.remove("hidden");
-      } else {
-        alert("Coba lagi yaa sayang 😚");
-      }
-    }
-  </script>
-
-  <!-- 3. Kertas Turun -->
-  <div id="scrollText" class="hidden text-center mt-10 max-w-lg mx-auto">
-    <div class="bg-white/80 p-6 rounded-lg shadow-xl backdrop-blur-md">
-      <p id="teksScroll"
-        class="text-lg text-pink-700 font-medium mb-4 animate-typing overflow-hidden whitespace-nowrap border-r-2 border-pink-500">
+    <!-- 6. Halaman Happy Anniversary -->
+    <div
+      id="finalPage"
+      class="hidden flex flex-col items-center justify-center text-center gap-4 p-6"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold text-pink-500 animate-bounce">
+        HAPPY ANNIVERSARY YANG KE 2 TAHUN 💕
+      </h1>
+      <p class="text-xl md:text-2xl text-pink-700">
+        timaakasiii yaa ailsa... timakasiii karena sudaa mau bertahan samaa
+        nabilll, timakasiii banyakkk aku ucapkan untuk ailsa karena sudah mau
+        bersamaku, dan aku minta maaf yaa kalo selama sama aku, kamu banyaa
+        sedii nya banyaa nangis nya karena sifat aku... aku selalu maraa dalam
+        beberapa bulan sebelumnya.. tapi percayaa deee aku sayanggg banget sama
+        ailsa, aku lakuin itu buat ngeindungin ailsa doang kok:), maaf yahh
+        terlalu over.... pokoknyaa timakaasiiii❤️
       </p>
-      <button onclick="keCountdown()" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full">Swipe
-        ➡️</button>
     </div>
-  </div>
 
-  <!-- 4. Countdown -->
-  <div id="countdownPage" class="hidden text-center">
-    <h2 class="text-3xl font-bold text-pink-700 mb-4">Siap-siap ya... 💖</h2>
-    <p id="countdown" class="text-6xl text-pink-600 font-extrabold">3</p>
-  </div>
+    <!-- Audio -->
+    <audio id="music1" src="musik1.mp3"></audio>
+    <audio id="music2" src="musik2.mp3" loop></audio>
 
-  <!-- 5. Video -->
-  <div id="videoSection" class="hidden fixed inset-0 z-50">
-    <video id="annivVideo" class="w-full h-full object-cover" src="video.mp4" controls></video>
-  </div>
+    <script>
+      let loveCounter = 0;
+      let nama = "";
 
-  <!-- 6. Halaman Happy Anniversary -->
-  <div id="finalPage" class="hidden flex flex-col items-center justify-center text-center gap-4 p-6">
-    <h1 class="text-4xl md:text-5xl font-bold text-pink-500 animate-bounce">HAPPY ANNIVERSARY YANG KE 2 TAHUN 💕</h1>
-    <p class="text-xl md:text-2xl text-pink-700">timaakasiii yaa ailsa...timakasiii karena sudaa mau bertahan samaa nabilll,timakasiii banyakkk aku ucapkan untuk ailsa karena sudah mau bersamaku ,dan aku minta maaf yaa kalo selama sama aku ,kamu banyaa sedii nya banyaa nangis nya karena sifat aku,aku selalu maraa dalam beberapa bulan sebelumnya..tapi percayaa deee aku sayanggg banget sama ailsa,aku lakuin itu buat ngeindungin ailsa doang kok:),maaf yahh terlalu over....pokoknyaa timakaasiiii❤️</p>
-  </div>
+      function mulai() {
+        const input = document.getElementById("namaInput").value.trim();
+        if (!input) return alert("Isi dulu dong namanya 😁");
+        nama = input;
+        document.getElementById("inputNama").classList.add("hidden");
+        document.getElementById("loveClick").classList.remove("hidden");
+      }
 
-  <audio id="music1" src="musik1.mp3"></audio>
-  <audio id="music2" src="musik2.mp3" loop></audio>
-
-  <script>
-    let loveCounter = 0;
-    let nama = "";
-
-    function mulai() {
-      const input = document.getElementById('namaInput').value.trim();
-      if (!input) return alert("Isi dulu dong namanya 😁");
-      nama = input;
-      document.getElementById('inputNama').classList.add('hidden');
-      document.getElementById('loveClick').classList.remove('hidden');
-    }
-
-
-    function klikLove(element) {
-      if (element.classList.contains("animate-ping")) return;
-      element.classList.add("animate-ping");
-      loveCounter++;
-      setTimeout(() => {
-        element.classList.remove("animate-ping");
-        element.classList.add("animate-bounce");
-      }, 500);
-
-      if (loveCounter === 4) {
-        document.getElementById('loveClick').classList.add('hidden');
+      function klikLove(el) {
+        if (el.classList.contains("animate-ping")) return;
+        el.classList.add("animate-ping");
+        loveCounter++;
         setTimeout(() => {
-          document.getElementById('scrollText').classList.remove('hidden');
-          document.getElementById('teksScroll').textContent = `Hai ${nama}, aku mau ngasih sesuatu nih.... ❤️`;
-          document.getElementById('music1').play();
+          el.classList.remove("animate-ping");
+          el.classList.add("animate-bounce");
+        }, 500);
+
+        if (loveCounter === 4) {
+          document.getElementById("loveClick").classList.add("hidden");
+          setTimeout(() => {
+            document.getElementById("scrollText").classList.remove("hidden");
+            ketikTeks(`Hai ${nama}, aku mau ngasih sesuatu nih.... ❤️`, () => {
+              document.getElementById("nextBtn").classList.remove("hidden");
+            });
+            document.getElementById("music1").play();
+          }, 1000);
+        }
+      }
+
+      function ketikTeks(teks, selesaiCallback) {
+        const elemen = document.getElementById("teksScroll");
+        let i = 0;
+        elemen.textContent = "";
+        const interval = setInterval(() => {
+          elemen.textContent += teks.charAt(i);
+          i++;
+          if (i >= teks.length) {
+            clearInterval(interval);
+            if (selesaiCallback) selesaiCallback();
+          }
+        }, 50);
+      }
+
+      function keCountdown() {
+        document.getElementById("scrollText").classList.add("hidden");
+        document.getElementById("countdownPage").classList.remove("hidden");
+
+        let detik = 3;
+        const countdown = document.getElementById("countdown");
+        const timer = setInterval(() => {
+          detik--;
+          countdown.textContent = detik;
+          if (detik === 0) {
+            clearInterval(timer);
+            document.getElementById("countdownPage").classList.add("hidden");
+            document.getElementById("videoSection").classList.remove("hidden");
+            const video = document.getElementById("annivVideo");
+            video.play();
+            video.requestFullscreen().catch(() => {});
+            document.getElementById("music1").pause();
+          }
         }, 1000);
       }
-    }
 
-    function keCountdown() {
-      document.getElementById('scrollText').classList.add('hidden');
-      document.getElementById('countdownPage').classList.remove('hidden');
+      document.getElementById("annivVideo").onended = () => {
+        document.getElementById("videoSection").classList.add("hidden");
+        document.getElementById("finalPage").classList.remove("hidden");
+        document.getElementById("music2").play();
+        startConfetti();
+      };
 
-      let detik = 3;
-      const countdown = document.getElementById('countdown');
-      const timer = setInterval(() => {
-        detik--;
-        countdown.textContent = detik;
-        if (detik === 0) {
-          clearInterval(timer);
-          document.getElementById('countdownPage').classList.add('hidden');
-          document.getElementById('videoSection').classList.remove('hidden');
-          const video = document.getElementById('annivVideo');
-          video.play();
-          video.requestFullscreen().catch(() => { });
-          document.getElementById('music1').pause();
+      function startConfetti() {
+        const duration = 6000;
+        const animationEnd = Date.now() + duration;
+        const colors = ["#ff69b4", "#ffb6c1", "#ffffff"];
+        (function frame() {
+          confetti({
+            particleCount: 5,
+            angle: 60,
+            spread: 70,
+            origin: { x: 0 },
+            colors,
+          });
+          confetti({
+            particleCount: 5,
+            angle: 120,
+            spread: 70,
+            origin: { x: 1 },
+            colors,
+          });
+          if (Date.now() < animationEnd) requestAnimationFrame(frame);
+        })();
+      }
+    </script>
+
+    <style>
+      @keyframes typing {
+        from {
+          width: 0;
         }
-      }, 1000);
-    }
-
-    document.getElementById('annivVideo').onended = () => {
-      document.getElementById('videoSection').classList.add('hidden');
-      document.getElementById('finalPage').classList.remove('hidden');
-      document.getElementById('music2').play();
-      startConfetti();
-    };
-
-    function startConfetti() {
-      const duration = 6 * 1000;
-      const animationEnd = Date.now() + duration;
-      const colors = ['#ff69b4', '#ffb6c1', '#ffffff'];
-
-      (function frame() {
-        confetti({
-          particleCount: 5,
-          angle: 60,
-          spread: 70,
-          origin: {x: 0},
-          colors: colors
-        });
-        confetti({
-          particleCount: 5,
-          angle: 120,
-          spread: 70,
-          origin: {x: 1},
-          colors: colors
-        });
-
-        if (Date.now() < animationEnd) {
-          requestAnimationFrame(frame);
+        to {
+          width: 100%;
         }
-      })();
-    }
-  </script>
-
-  <style>
-    @keyframes typing {
-      from {
-        width: 0;
       }
-
-      to {
-        width: 100%;
+      .animate-typing {
+        animation:
+          typing 4s steps(40, end),
+          blink 0.75s step-end infinite;
+        border-right: 2px solid #ec4899;
+        white-space: nowrap;
+        overflow: hidden;
       }
-    }
-
-    .animate-typing {
-      animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
-      border-right: 2px solid #ec4899;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    @keyframes blink {
-      50% {
-        border-color: transparent;
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
       }
-    }
-  </style>
-</body>
-
+    </style>
+  </body>
 </html>
